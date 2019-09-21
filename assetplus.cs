@@ -1,13 +1,17 @@
 ﻿using BepInEx;
 using System.IO;
+using R2API.Utils;
 
 namespace AssetPlus {
     /// <summary>
     /// Simple class for adding all the individual of AssetPlus together
     /// </summary>
-    public class AssetPlus
+    ///     // ReSharper disable once InconsistentNaming
+    [R2APISubmodule]
+    public static class AssetPlus
     {
-        internal void Awake()
+        [R2APISubmoduleInit(Stage = InitStage.SetHooks)]
+        public static void Awake()
         {
             SoundPlus.SoundAwake();
             FontPlus.FontAwake();
