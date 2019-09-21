@@ -1,8 +1,8 @@
-﻿using BepInEx;
-using System.IO;
+﻿using System.IO;
+using BepInEx;
 using R2API.Utils;
 
-namespace AssetPlus {
+namespace R2API.Assetplus {
     /// <summary>
     /// Simple class for adding all the individual of AssetPlus together
     /// </summary>

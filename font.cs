@@ -1,8 +1,6 @@
-﻿using BepInEx;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace AssetPlus
+namespace R2API.Assetplus
 {
     internal static class FontPlus
     {

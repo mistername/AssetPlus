@@ -1,11 +1,11 @@
-﻿using RoR2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using RoR2;
 using UnityEngine;
 
-namespace AssetPlus
+namespace R2API.Assetplus
 {
     internal static class SoundPlus
     {

@@ -1,12 +1,11 @@
-﻿using BepInEx;
-using SimpleJSON;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using SimpleJSON;
 using UnityEngine;
 
-namespace AssetPlus
+namespace R2API.Assetplus
 {
     internal static class TextPlus
     {
