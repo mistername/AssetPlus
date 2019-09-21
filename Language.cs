@@ -5,8 +5,7 @@ using System.Reflection;
 using SimpleJSON;
 using UnityEngine;
 
-namespace R2API.Assetplus
-{
+namespace R2API.AssetPlus {
     internal static class TextPlus
     {
         internal static void LanguageAwake()

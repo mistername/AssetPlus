@@ -2,7 +2,7 @@
 using BepInEx;
 using R2API.Utils;
 
-namespace R2API.Assetplus {
+namespace R2API.AssetPlus {
     /// <summary>
     /// Simple class for adding all the individual of AssetPlus together
     /// </summary>

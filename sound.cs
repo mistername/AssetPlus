@@ -5,8 +5,7 @@ using System.Runtime.InteropServices;
 using RoR2;
 using UnityEngine;
 
-namespace R2API.Assetplus
-{
+namespace R2API.AssetPlus {
     internal static class SoundPlus
     {
         internal static void SoundAwake()

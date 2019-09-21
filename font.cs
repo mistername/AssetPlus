@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace R2API.Assetplus
-{
+namespace R2API.AssetPlus {
     internal static class FontPlus
     {
         internal static void FontAwake()
