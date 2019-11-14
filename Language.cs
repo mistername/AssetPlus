@@ -202,7 +202,6 @@ namespace R2API.AssetPlus {
         /// Adding an file which is read into an string
         /// </summary>
         /// <param name="file">entire file as string</param>
-        /// <param name="reload">whether to reload the language (doesn't reload if language not loaded yet)</param>
         public static void Add(string file)
         {
             languages.Add(file);
