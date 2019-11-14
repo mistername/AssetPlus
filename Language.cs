@@ -148,7 +148,6 @@ namespace R2API.AssetPlus {
                 languages.Add(File.ReadAllText(path));
             }
 
-            Languages.AddToken("STATNAME_OSPCOUNT", "Times protected from being one shot");
         }
 
         /// <summary>
