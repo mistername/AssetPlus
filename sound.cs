@@ -136,16 +136,16 @@ namespace R2API.AssetPlus {
                 //copies the byte array to the IntPtr
                 Marshal.Copy(BankData, 0, Memory, BankData.Length);
 
-                //BankData is now copied to Memory so is unnecassary
-                BankData = null;
-
                 //Loads the entire IntPtr as a bank
-                var result = AkSoundEngine.LoadBank(Memory, uint.Parse(BankData.Length.ToString()), out BankID);
+                var result = AkSoundEngine.LoadBank(Memory, (uint)BankData.Length, out BankID);
                 if (result != AKRESULT.AK_Success)
                 {
                     Debug.LogError("WwiseUnity: AkMemBankLoader: bank loading failed with result " + result);
                     soundBanks.Remove(this);
                 }
+
+                //BankData is now copied to Memory so is unnecassary
+                BankData = null;
             }
 
             /// <summary>
