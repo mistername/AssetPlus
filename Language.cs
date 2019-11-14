@@ -148,6 +148,7 @@ namespace R2API.AssetPlus {
                 languages.Add(File.ReadAllText(path));
             }
 
+            ReloadLanguage();
         }
 
         /// <summary>
@@ -164,6 +165,11 @@ namespace R2API.AssetPlus {
             else
             {
                 GenericTokens.Add(key, value);
+            }
+
+            if (RoR2.Language.currentLanguage != "")
+            {
+                RoR2.Language.SetCurrentLanguage(RoR2.Language.currentLanguage);
             }
         }
 
@@ -182,22 +188,33 @@ namespace R2API.AssetPlus {
 
             if (LanguageSpecificTokens[language].ContainsKey(key))
             {
-                Debug.LogError("2 mods try to edit the same token: " + key + " in language: " + language);
                 GenericTokens[key] = value;
             }
             else
             {
                 LanguageSpecificTokens[language].Add(key, value);
             }
+
+            ReloadLanguage();
         }
 
         /// <summary>
         /// Adding an file which is read into an string
         /// </summary>
         /// <param name="file">entire file as string</param>
+        /// <param name="reload">whether to reload the language (doesn't reload if language not loaded yet)</param>
         public static void Add(string file)
         {
             languages.Add(file);
+            ReloadLanguage();
+        }
+
+        private static void ReloadLanguage()
+        {
+            if (RoR2.Language.currentLanguage != "")
+            {
+                RoR2.Language.SetCurrentLanguage(RoR2.Language.currentLanguage);
+            }
         }
 
         internal static Dictionary<string, string> GenericTokens = new Dictionary<string, string>();
