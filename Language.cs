@@ -159,7 +159,6 @@ namespace R2API.AssetPlus {
         {
             if (GenericTokens.ContainsKey(key))
             {
-                Debug.LogError("2 mods try to edit the same token: " + key);
                 GenericTokens[key] = value;
             }
             else
