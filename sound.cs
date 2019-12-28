@@ -10,6 +10,10 @@ namespace R2API.AssetPlus {
     {
         internal static void SoundAwake()
         {
+            // Disable SoundPlus if RoR2 is running with its graphics and sound engine disabled (Dedicated Servers) to avoid any bad side effects.
+            if (Application.isBatchMode)
+                return;
+
             var files = AssetPlus.GetFiles("*.sound");
 
             foreach (var file in files)
