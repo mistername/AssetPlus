@@ -316,7 +316,10 @@ namespace R2API.AssetPlus {
             ReloadLanguage();
         }
 
-        private static void ReloadLanguage()
+		/// <summary>
+        /// Reloads the game language if it is already loaded
+        /// </summary>
+        public static void ReloadLanguage()
         {
             if (RoR2.Language.currentLanguage != "")
             {
