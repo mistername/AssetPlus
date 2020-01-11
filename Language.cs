@@ -166,10 +166,21 @@ namespace R2API.AssetPlus {
             {
                 GenericTokens.Add(key, value);
             }
+        }
 
-            if (RoR2.Language.currentLanguage != "")
+        /// <summary>
+        /// Adds a single languagetoken and value with optional reload
+        /// </summary>
+        /// <param name="key">Token the game asks</param>
+        /// <param name="value">Value it gives back</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(string key, string value, bool reload = false)
+        {
+            AddToken(key, value);
+
+            if (reload)
             {
-                RoR2.Language.SetCurrentLanguage(RoR2.Language.currentLanguage);
+                ReloadLanguage();
             }
         }
 
@@ -194,9 +205,106 @@ namespace R2API.AssetPlus {
             {
                 LanguageSpecificTokens[language].Add(key, value);
             }
-
-            ReloadLanguage();
         }
+
+        /// <summary>
+        /// Adds a single languagetoken and value to a specific language
+        /// </summary>
+        /// <param name="key">Token the game asks</param>
+        /// <param name="value">Value it gives back</param>
+        /// <param name="language">Language you want to add this to</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(string key, string value, string language, bool reload = false)
+        {
+            AddToken(key, value, language);
+
+            if (reload)
+            {
+                ReloadLanguage();
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple languagetokens and value to languages
+        /// </summary>
+        /// <param name="languageDictionary">dictionary of languages containing dictionaries of key-value (eg ["en"]["mytoken"]="mystring")</param>
+        public static void AddToken(Dictionary<string, Dictionary<string, string>> languageDictionary) {
+            foreach (var language in languageDictionary.Keys) {
+                foreach (var token in languageDictionary[language].Keys) {
+                    AddToken(languageDictionary[language][token], token, language);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple languagetokens and value to languages
+        /// </summary>
+        /// <param name="languageDictionary">dictionary of languages containing dictionaries of key-value (eg ["en"]["mytoken"]="mystring")</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(Dictionary<string, Dictionary<string, string>> languageDictionary, bool reload = false) {
+            AddToken(languageDictionary);
+
+            if (reload)
+            {
+                ReloadLanguage();
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple languagetokens and value to a specific language
+        /// </summary>
+        /// <param name="languageDictionary">dictionaries of key-value (eg ["mytoken"]="mystring")</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(Dictionary<string, string> tokenDictionary, string language)
+        {
+            foreach (var token in tokenDictionary.Keys)
+            {
+                AddToken(token, tokenDictionary[token], language);
+            }
+        }
+
+                /// <summary>
+        /// Adds multiple languagetokens and value to a specific language
+        /// </summary>
+        /// <param name="languageDictionary">dictionaries of key-value (eg ["mytoken"]="mystring")</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(Dictionary<string, string> tokenDictionary, string language, bool reload = false)
+        {
+            AddToken(tokenDictionary, language);
+
+            if (reload)
+            {
+                ReloadLanguage();
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple languagetokens and value
+        /// </summary>
+        /// <param name="languageDictionary">dictionaries of key-value (eg ["mytoken"]="mystring")</param>
+        public static void AddToken(Dictionary<string, string> tokenDictionary)
+        {
+            foreach (var token in tokenDictionary.Keys)
+            {
+                AddToken(token, tokenDictionary[token]);
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple languagetokens and value
+        /// </summary>
+        /// <param name="languageDictionary">dictionaries of key-value (eg ["mytoken"]="mystring")</param>
+        /// <param name="reload">if the dictionary of the game should be reloaded</param>
+        public static void AddToken(Dictionary<string, string> tokenDictionary, bool reload = false) {
+            AddToken(tokenDictionary);
+
+            if (reload) {
+                ReloadLanguage();
+            }
+        }
+
+
+
 
         /// <summary>
         /// Adding an file which is read into an string
